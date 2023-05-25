@@ -1,33 +1,26 @@
+Run test
+pytest -s
+
 Running tests on Chromium
 pytest
-
 
 Running a single test file
 pytest test_login.py
 
-
 Run the test with the function name
 pytest -k "test_add_a_todo_item"
-
 
 Running tests in headed mode
 pytest --headed test_login.py
 
-
 Running Tests on specific browsers
 pytest test_login.py --browser firefox
-
 
 Run tests with slow mo with the --slowmo argument.
 pytest --slowmo 100
 
-
 Bash
 PWDEBUG=1 pytest -s
 
-
 Running Codegen
 playwright codegen
-
-
-
