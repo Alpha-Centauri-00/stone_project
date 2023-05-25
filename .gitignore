@@ -1,0 +1,7 @@
+__pycache__
+vivaaa/
+desktop.ini
+config.py
+tests/__pycache__
+.vscode
+.pytest_cache
