@@ -6,4 +6,4 @@ tests/__pycache__
 .vscode
 .pytest_cache
 *.html
-
+*.txt
