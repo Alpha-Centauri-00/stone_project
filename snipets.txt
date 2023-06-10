@@ -24,3 +24,6 @@ PWDEBUG=1 pytest -s
 
 Running Codegen
 playwright codegen
+
+Running Report
+pytest --template=html1/index.html --report=report.html
