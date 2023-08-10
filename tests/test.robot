@@ -39,14 +39,13 @@ get items
     
 search for company
     [Arguments]    ${target}
+    ${dictionary}    get items
     
-    ${dict}    get items
-    ${result}    Evaluate    next((val for val in ${dict}.values() if "${target}" in val), None)
-    
-    IF  $result != ${None} and $result[0] == "${target}"
-        Log    ${result}[0] is looking for a new job at: \n${result}[1]   level=WARN
-    ELSE
-        Log    Sh!t
+    # Log    ${dictionary}
+    FOR    ${key}    ${value}    IN    &{dictionary}
+        
+        ${condition} =    Run Keyword And Return Status    Should Contain    ${value}[0]    ${target}
+        Run Keyword If    ${condition}    Log    ${value}   level=WARN 
     END
 
 
