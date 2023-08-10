@@ -9,6 +9,7 @@ open the page
     New Context    viewport={'width': 1920, 'height': 1080}
     New Page       ${URL}
     Wait Until Network Is Idle
+    accept cookies
 
 accept cookies
     Wait For Elements State    ${accept_cookies}    state=visible
@@ -53,7 +54,6 @@ search for company
 
 open page and detect company
     open the page
-    accept cookies
     search for company       <Target Company>
 
                                    
