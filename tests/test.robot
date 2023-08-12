@@ -1,33 +1,34 @@
 *** Settings ***
 Library   Browser
 Library   Collections
+Variables    config.py
 
 
 *** Keywords ***
 open the page
     New Browser    chromium    headless=false
     New Context    viewport={'width': 1920, 'height': 1080}
-    New Page       ${URL}
+    New Page       ${SEARCHING_LINK}
     Wait Until Network Is Idle
     accept cookies
 
 accept cookies
-    Wait For Elements State    ${accept_cookies}    state=visible
-    Click                      ${accept_cookies} 
+    Wait For Elements State    ${ACCEPTING_COOKY}    state=visible
+    Click                      ${ACCEPTING_COOKY} 
 
 get items
     ${companies_name_list}    Create List
     ${companies_link_list}    Create List
     
-    ${count}    Get Element Count    ${company_classes}
+    ${count}    Get Element Count    ${COMPANY_CLASS}
     FOR  ${x}  IN RANGE  ${count}
 
-        ${companies}    Get Elements    ${company_classes}
+        ${companies}    Get Elements    ${COMPANY_CLASS}
         ${elem}    Get From List    ${companies}    ${x}
         ${value_caompany}    Get Text    ${elem}
         Append To List    ${companies_name_list}    ${value_caompany}
 
-        ${links}    Get Elements    ${link_classes}
+        ${links}    Get Elements    ${LINK_CLASS}
         ${elem}    Get From List    ${links}    ${x}
         ${value_url}    Get Property    ${elem}    href
         Append To List    ${companies_link_list}    ${value_url}
