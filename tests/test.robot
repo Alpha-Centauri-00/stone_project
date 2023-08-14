@@ -6,7 +6,8 @@ Variables    config.py
 
 *** Keywords ***
 open the page
-    New Browser    chromium    headless=false
+    Set Browser Timeout    1m
+    New Browser    chromium    headless=True
     New Context    viewport={'width': 1920, 'height': 1080}
     New Page       ${SEARCHING_LINK}
     Wait Until Network Is Idle
