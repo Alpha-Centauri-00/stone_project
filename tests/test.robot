@@ -1,6 +1,7 @@
 *** Settings ***
-Library   Browser
-Library   Collections
+Library      Browser
+Library      Collections
+Library      keywords.py
 Variables    config.py
 
 
@@ -49,6 +50,8 @@ search for company
         
         ${condition} =    Run Keyword And Return Status    Should Contain    ${value}[0]    ${target}
         Run Keyword If    ${condition}    Log    The Company: ${value}[0] is looking for new chance at:\n${value}[1]    level=WARN 
+        Run Keyword If    ${condition}    keywords.Show Message    ${value}[0]    ${value}[1]
+        
     END
 
 
